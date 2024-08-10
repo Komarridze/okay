@@ -28,7 +28,7 @@ void lx_advance(lexer_T* lexer) {
 };
 
 void lx_skipspace(lexer_T* lexer) {
-	while (lexer->c == ' ' || lexer->c == 10 || lexer->c == 13) {
+	while (lexer->c == ' ' || lexer->c == 10 || lexer->c == 13 || lexer->c == 9) {
 		lx_advance(lexer);
 	}
 };
@@ -37,7 +37,7 @@ token_T* lx_nexttoken(lexer_T* lexer) {
 	
 	while (lexer->c != '\0' && lexer->i < strlen(lexer->contents)) {
 		//printf("%d\n", lexer->c);
-		if (lexer->c == ' ' || lexer->c == 10 || lexer->c == 13)
+		if (lexer->c == ' ' || lexer->c == 10 || lexer->c == 13 || lexer->c == 9)
 			lx_skipspace(lexer);
 		
 		if (isalnum(lexer->c))
@@ -55,6 +55,8 @@ token_T* lx_nexttoken(lexer_T* lexer) {
 		case ';': return lx_advanceWtoken(lexer, init_token(TOKEN_SEMI, lx_ccharToString(lexer))); break;
 		case '(': return lx_advanceWtoken(lexer, init_token(TOKEN_LEFTP, lx_ccharToString(lexer))); break;
 		case ')': return lx_advanceWtoken(lexer, init_token(TOKEN_RIGHTP, lx_ccharToString(lexer))); break;
+		case '{': return lx_advanceWtoken(lexer, init_token(TOKEN_LEFTBR, lx_ccharToString(lexer))); break;
+		case '}': return lx_advanceWtoken(lexer, init_token(TOKEN_RIGHTBR, lx_ccharToString(lexer))); break;
 		}
 		
 	}

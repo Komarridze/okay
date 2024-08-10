@@ -134,6 +134,7 @@
     <ClCompile Include="k_token.c" />
     <ClCompile Include="k_visitor.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="scope.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AST.h" />
@@ -142,8 +143,10 @@
     <ClInclude Include="k_parser.h" />
     <ClInclude Include="k_token.h" />
     <ClInclude Include="k_visitor.h" />
+    <ClInclude Include="scope.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="functry.k" />
     <None Include="main.k" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

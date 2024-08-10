@@ -6,12 +6,18 @@ AST_T* init_ast(int type) {
 	if (ast notnullptr) {
 		ast->type = type;
 
+		ast->scope = (void*)0;
+
 		/* AST_SRC_DEF */
 		ast->srcdef_name = (void*)0;
 		ast->srcdef_value = (void*)0;
 
 		/* AST_SRC */
 		ast->srcname = (void*)0;
+
+		/* AST_FUNCTION_DEF */
+		ast->fdefname = (void*)0;
+		ast->fdefbody = (void*)0;
 
 		/* AST_FUNCTION_CALL */
 		ast->fcallname = (void*)0;

@@ -16,6 +16,8 @@ AST_T* vt_VSrcDef(visitor_T* visitor, AST_T* node);
 
 AST_T* vt_VSrc(visitor_T* visitor, AST_T* node);
 
+AST_T* vt_VFDef(visitor_T* visitor, AST_T* node);
+
 AST_T* vt_VFCall(visitor_T* visitor, AST_T* node);
 
 AST_T* vt_VStr(visitor_T* visitor, AST_T* node);

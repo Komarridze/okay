@@ -1,4 +1,6 @@
 #include "k_visitor.h"
+#include "scope.h"
+#include "AST.h"
 #include <stdio.h>
 #include <string.h>
 #define notnullptr != '\0'
@@ -33,6 +35,7 @@ AST_T* vt_visit(visitor_T* visitor, AST_T* node) {
 	switch (node->type) {
 	case AST_SRC_DEF: return vt_VSrcDef(visitor, node); break;
 	case AST_SRC: return vt_VSrc(visitor, node); break;
+	case AST_FUNCTION_DEF: return vt_VFDef(visitor, node); break;
 	case AST_FUNCTION_CALL: return vt_VFCall(visitor, node); break;
 	case AST_STRINGEXPR: return vt_VStr(visitor, node); break;
 	case AST_COMPOUND: return vt_VCompound(visitor, node); break;
@@ -80,9 +83,21 @@ AST_T* vt_VSrc(visitor_T* visitor, AST_T* node) {
 	return node;
 };
 
+AST_T* vt_VFDef(visitor_T* visitor, AST_T* node) {
+	
+	scope_addfdef(node->scope, node);
+	return node;
+};
+
 AST_T* vt_VFCall(visitor_T* visitor, AST_T* node) {
 	if (strcmp(node->fcallname, "printc") == 0) {
 		return builtin_printc(visitor, node->fcall_args, node->fcall_argsize);
+	}
+
+	AST_T* fdef = scope_getfdef(node->scope, node->fcallname);
+
+	if (fdef notnullptr) {
+		return vt_visit(visitor, fdef->fdefbody);
 	}
 
 	printf("K0003: Undefined method '%s'\n", node->fcallname);

@@ -5,6 +5,7 @@
 
 typedef struct AST_STRUCT {
 	enum {
+		AST_FUNCTION_DEF,
 		AST_FUNCTION_CALL,
 		AST_SRC,
 		AST_SRC_DEF,
@@ -13,6 +14,8 @@ typedef struct AST_STRUCT {
 		AST_NOOP
 	} type;
 
+	struct SCOPE_STRUCT* scope;
+
 	/* AST_SRC_DEF */
 	char* srcdef_name;
 	struct AST_STRUCT* srcdef_value;
@@ -20,6 +23,9 @@ typedef struct AST_STRUCT {
 	/* AST_SRC */
 	char* srcname;
 	
+	/* AST_FUNCTION_DEF */
+	char* fdefname;
+	struct AST_STRUCT* fdefbody;
 
 	/* AST_FUNCTION_CALL */
 	char* fcallname;

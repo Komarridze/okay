@@ -39,6 +39,9 @@
     <ClCompile Include="io.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="scope.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="k_token.h">
@@ -59,9 +62,15 @@
     <ClInclude Include="io.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="scope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="main.k">
+      <Filter>Executables</Filter>
+    </None>
+    <None Include="functry.k">
       <Filter>Executables</Filter>
     </None>
   </ItemGroup>

@@ -1,7 +1,14 @@
 #include "k_parser.h"
+#include "scope.h"
 #include <stdio.h>
 #include <string.h>
 #define notnullptr != '\0'
+
+// just in case
+/*static scope_T* getnodescope(parser_T* parser, AST_T* node) {
+	return node->scope == (void*)0 ? parser->scope : node->scope;
+}
+ */
 
 parser_T* init_parser(lexer_T* lexer) {
 	parser_T* parser = calloc(1, sizeof(struct PARSER_STRUCT));
@@ -9,6 +16,7 @@ parser_T* init_parser(lexer_T* lexer) {
 		parser->lexer = lexer;
 		parser->thistoken = lx_nexttoken(lexer);
 		parser->prevtoken = parser->thistoken;
+		parser->scope = init_scope();
 	}
 
 	return parser;
@@ -27,23 +35,24 @@ void ps_eat(parser_T* parser, int tokentype) {
 		
 };
 
-AST_T* ps_parse(parser_T* parser) {
-	return ps_parseMultSt(parser);
+AST_T* ps_parse(parser_T* parser, scope_T* scope) {
+	return ps_parseMultSt(parser, scope);
 };
 
-AST_T* ps_parseStatement(parser_T* parser) {
+AST_T* ps_parseStatement(parser_T* parser, scope_T* scope) {
 	//printf("type: %d\n", parser->thistoken->type);
 	switch (parser->thistoken->type) {
-	case TOKEN_ID: return ps_parseID(parser);
+	case TOKEN_ID: return ps_parseID(parser, scope);
 	}
 	return init_ast(AST_NOOP);
 };
 
-AST_T* ps_parseMultSt(parser_T* parser) {
+AST_T* ps_parseMultSt(parser_T* parser, scope_T* scope) {
 	AST_T* compound = init_ast(AST_COMPOUND);
+	compound->scope = scope;
 	compound->compound_value = calloc(1, sizeof(struct AST_STRUCT));
-	AST_T* astStatement = ps_parseStatement(parser);
-
+	AST_T* astStatement = ps_parseStatement(parser, scope);
+	astStatement->scope = scope;
 	if (compound->compound_value notnullptr) {
 		compound->compound_value[0] = astStatement;
 		compound->compound_size += 1;
@@ -53,7 +62,7 @@ AST_T* ps_parseMultSt(parser_T* parser) {
 	while (parser->thistoken->type == TOKEN_SEMI) {
 		ps_eat(parser, TOKEN_SEMI);
 		
-		AST_T* astStatement = ps_parseStatement(parser);
+		AST_T* astStatement = ps_parseStatement(parser, scope);
 		if (astStatement) {
 		
 		compound->compound_size += 1;
@@ -70,21 +79,49 @@ AST_T* ps_parseMultSt(parser_T* parser) {
 	return compound;
 };
 
-AST_T* ps_parseExpr(parser_T* parser) {
+AST_T* ps_parseExpr(parser_T* parser, scope_T* scope) {
 	//printf("%d\n", parser->thistoken->type);
 	switch (parser->thistoken->type) {
-	case TOKEN_STRINGEXPR: return ps_parseStr(parser);
-	case TOKEN_ID: return ps_parseID(parser);
+	case TOKEN_STRINGEXPR: return ps_parseStr(parser, scope);
+	case TOKEN_ID: return ps_parseID(parser, scope);
 	}
 
 	return init_ast(AST_NOOP);
 };
 
-AST_T* ps_parseFactor(parser_T* parser);
+AST_T* ps_parseFactor(parser_T* parser, scope_T* scope);
 
-AST_T* ps_parseTerm(parser_T* parser);
+AST_T* ps_parseTerm(parser_T* parser, scope_T* scope);
 
-AST_T* ps_parseFCall(parser_T* parser) {
+AST_T* ps_parseFDef(parser_T* parser, scope_T* scope) {
+	AST_T* fdef = init_ast(AST_FUNCTION_DEF);
+	ps_eat(parser, TOKEN_ID); //alias
+
+	char* fname = parser->thistoken->value;
+	fdef->fdefname = calloc(strlen(fname) + 1, sizeof(char));
+
+	if (fdef->fdefname notnullptr) {
+		strcpy_s(fdef->fdefname, strlen(fname) + 1, fname);
+	}
+	
+
+	ps_eat(parser, TOKEN_ID); //alias name
+	ps_eat(parser, TOKEN_LEFTP);
+	ps_eat(parser, TOKEN_RIGHTP);
+	ps_eat(parser, TOKEN_LEFTBR);
+
+	
+	fdef->fdefbody = ps_parseMultSt(parser, scope);
+
+	ps_eat(parser, TOKEN_RIGHTBR);
+
+	fdef->scope = scope;
+
+	return fdef;
+
+};
+
+AST_T* ps_parseFCall(parser_T* parser, scope_T* scope) {
 	AST_T* fcall = init_ast(AST_FUNCTION_CALL);
 	
 	fcall->fcallname = parser->prevtoken->value;
@@ -92,7 +129,7 @@ AST_T* ps_parseFCall(parser_T* parser) {
 
 	fcall->fcall_args = calloc(1, sizeof(struct AST_STRUCT*));
 
-	AST_T* astExpr = ps_parseExpr(parser);
+	AST_T* astExpr = ps_parseExpr(parser, scope);
 
 	if (fcall->fcall_args notnullptr) {
 		fcall->fcall_args[0] = astExpr;
@@ -103,7 +140,7 @@ AST_T* ps_parseFCall(parser_T* parser) {
 	while (parser->thistoken->type == TOKEN_COMMA) {
 		ps_eat(parser, TOKEN_COMMA);
 
-		AST_T* astExpr = ps_parseExpr(parser);
+		AST_T* astExpr = ps_parseExpr(parser, scope);
 		fcall->fcall_argsize += 1;
 
 		if (fcall->fcall_args notnullptr) {
@@ -115,56 +152,68 @@ AST_T* ps_parseFCall(parser_T* parser) {
 	}
 
 	ps_eat(parser, TOKEN_RIGHTP);
+
+	fcall->scope = scope;
+
 	return fcall;
 
 };
 
-AST_T* ps_parseSrcDef(parser_T* parser) {
+AST_T* ps_parseSrcDef(parser_T* parser, scope_T* scope) {
 	ps_eat(parser, TOKEN_ID); //src
 	char* srcdefname = parser->thistoken->value;
 	//printf(srcdefname);
 	ps_eat(parser, TOKEN_ID); //src name
 	ps_eat(parser, TOKEN_EQUALS);
-	AST_T* srcdefvalue = ps_parseExpr(parser);
+	AST_T* srcdefvalue = ps_parseExpr(parser, scope);
 
 	AST_T* srcdef = init_ast(AST_SRC_DEF);
 	srcdef->srcdef_name = srcdefname;
 	srcdef->srcdef_value = srcdefvalue;
 
+	srcdef->scope = scope;
+
 	return srcdef;
 
 };
 
-AST_T* ps_parseSrc(parser_T* parser) {
+AST_T* ps_parseSrc(parser_T* parser, scope_T* scope) {
 
 	char* tokenvalue = parser->thistoken->value;
 	ps_eat(parser, TOKEN_ID); // src name or alias name
 	
 	if (parser->thistoken->type == TOKEN_LEFTP) {
-		return ps_parseFCall(parser);
+		return ps_parseFCall(parser, scope);
 	}
 
 	AST_T* astsrc = init_ast(AST_SRC);
 	astsrc->srcname = tokenvalue;
 
+	astsrc->scope = scope;
+
 	return astsrc;
 };
 
-AST_T* ps_parseStr(parser_T* parser) {
+AST_T* ps_parseStr(parser_T* parser, scope_T* scope) {
 	AST_T* aststring = init_ast(AST_STRINGEXPR);
 	aststring->strvalue = parser->thistoken->value;
 	
 	ps_eat(parser, TOKEN_STRINGEXPR);
 
+	aststring->scope = scope;
+
 	return aststring;
 
 };
 
-AST_T* ps_parseID(parser_T* parser) {
+AST_T* ps_parseID(parser_T* parser, scope_T* scope) {
 	if (strcmp(parser->thistoken->value, "src") == 0) {
-		return ps_parseSrcDef(parser);
+		return ps_parseSrcDef(parser, scope);
+	}
+	else if (strcmp(parser->thistoken->value, "alias") == 0) {
+		return ps_parseFDef(parser, scope);
 	}
 	else {
-		return ps_parseSrc(parser);
+		return ps_parseSrc(parser, scope);
 	}
 };

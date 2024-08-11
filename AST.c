@@ -18,6 +18,8 @@ AST_T* init_ast(int type) {
 		/* AST_FUNCTION_DEF */
 		ast->fdefname = (void*)0;
 		ast->fdefbody = (void*)0;
+		ast->fdefargs = (void*)0;
+		ast->fdefargs_size = 0;
 
 		/* AST_FUNCTION_CALL */
 		ast->fcallname = (void*)0;

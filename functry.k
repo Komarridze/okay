@@ -1,9 +1,5 @@
-alias fuckAround() {
-	printc("smth");
+alias fuckAround(andFindOut, evenMore) {
+printc(andFindOut, evenMore);
 };
 
-fuckAround();
-fuckAround();
-fuckAround();
-fuckAround();
-fuckAround();
+fuckAround("yeah", "that works");

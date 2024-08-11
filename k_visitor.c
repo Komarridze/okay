@@ -25,8 +25,7 @@ static AST_T* builtin_printc(visitor_T* visitor, AST_T** args, int args_size) {
 visitor_T* init_visitor() {
 	visitor_T* visitor = calloc(1, sizeof(struct VISITOR_STRUCT));
 	if (visitor notnullptr) {
-		visitor->srcdefs = (void*)0;
-		visitor->srcdefs_size = 0;
+		visitor->status = 1;
 	}
 }
 
@@ -49,37 +48,19 @@ AST_T* vt_visit(visitor_T* visitor, AST_T* node) {
 AST_T* vt_VSrcDef(visitor_T* visitor, AST_T* node) {
 	
 	
-	if (visitor->srcdefs == (void*)0) {
-		visitor->srcdefs = calloc(1, sizeof(struct AST_STRUCT*));
-		if (visitor->srcdefs notnullptr) {
-			visitor->srcdefs[0] = node;
-			visitor->srcdefs_size += 1;
-		}
-	}
-	else {
-		visitor->srcdefs_size += 1;
-		visitor->srcdefs = realloc(
-		visitor->srcdefs,
-		visitor->srcdefs_size * sizeof(struct AST_STRUCT*));
-		if (visitor->srcdefs notnullptr) {
-			visitor->srcdefs[visitor->srcdefs_size - 1] = node;
-		}
-	}
-
+	scope_addsrcdef(node->scope, node);
 	return node;
 };
 
 AST_T* vt_VSrc(visitor_T* visitor, AST_T* node) {
-	for (int i = 0; i < visitor->srcdefs_size; i++) {
-		AST_T* vardef = visitor->srcdefs[i];
-		//printf("%s: %s", vardef->srcdef_name, node->srcname);
+	AST_T* srcdef = scope_getsrcdef(node->scope, node->srcname);
 
-		if (strcmp(vardef->srcdef_name, node->srcname) == 0) {
-			return vt_visit(visitor, vardef->srcdef_value);
-		}
+	if (srcdef notnullptr) {
+		return vt_visit(visitor, srcdef->srcdef_value);
 	}
+	
 
-	printf("K0004: Undefined variable '%s\n", node->srcname);
+	printf("K0004: Undefined variable '%s'\n", node->srcname);
 	return node;
 };
 
@@ -96,12 +77,31 @@ AST_T* vt_VFCall(visitor_T* visitor, AST_T* node) {
 
 	AST_T* fdef = scope_getfdef(node->scope, node->fcallname);
 
-	if (fdef notnullptr) {
-		return vt_visit(visitor, fdef->fdefbody);
+	if (fdef == (void*)0) {
+		printf("K0003: Undefined method '%s'\n", node->fcallname);
+		return init_ast(AST_NOOP);
 	}
 
-	printf("K0003: Undefined method '%s'\n", node->fcallname);
-	return init_ast(AST_NOOP);
+	for (int i = 0; i < fdef->fdefargs_size; i++) {
+		AST_T* astsrc = fdef->fdefargs[i];
+		AST_T* astvalue = node->fcall_args[i];
+
+		AST_T* srcdef = init_ast(AST_SRC_DEF);
+		srcdef->srcdef_value = astvalue;
+
+		srcdef->srcdef_name = calloc(strlen(astsrc->srcname) + 1, sizeof(char));
+		
+		if (srcdef->srcdef_name != NULL) 
+			strcpy_s(srcdef->srcdef_name, strlen(astsrc->srcname) + 1, astsrc->srcname);
+		
+
+		scope_addsrcdef(fdef->fdefbody->scope, srcdef);
+			
+	}
+
+
+	return vt_visit(visitor, fdef->fdefbody);
+	
 };
 
 AST_T* vt_VStr(visitor_T* visitor, AST_T* node) {

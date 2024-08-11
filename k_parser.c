@@ -29,7 +29,7 @@ void ps_eat(parser_T* parser, int tokentype) {
 		parser->thistoken = lx_nexttoken(parser->lexer);
 	}
 	else {
-		printf("K0001: Unexprected token '%s' of type %d", parser->thistoken->value, parser->thistoken->type);
+		printf("K0001: Unexpected token '%s' of type %d\n", parser->thistoken->value, parser->thistoken->type);
 		parser->thistoken = init_token(TOKEN_STRINGEXPR, "undefined");
 	}
 		
@@ -68,7 +68,8 @@ AST_T* ps_parseMultSt(parser_T* parser, scope_T* scope) {
 		compound->compound_size += 1;
 
 		if (compound->compound_value notnullptr) {
-			compound->compound_value = realloc(compound->compound_value, compound->compound_size * sizeof(struct AST_STRUCT));
+			struct AST_STRUCT** x = realloc(compound->compound_value, compound->compound_size * sizeof(struct AST_STRUCT));
+			if (x != NULL) compound->compound_value = x;
 			if (compound->compound_value notnullptr) {
 				compound->compound_value[compound->compound_size - 1] = astStatement;
 			}
@@ -107,6 +108,33 @@ AST_T* ps_parseFDef(parser_T* parser, scope_T* scope) {
 
 	ps_eat(parser, TOKEN_ID); //alias name
 	ps_eat(parser, TOKEN_LEFTP);
+
+	fdef->fdefargs = calloc(1, sizeof(struct AST_STRUCT*));
+
+	AST_T* arg = ps_parseSrc(parser, scope);
+	fdef->fdefargs_size += 1;
+	
+	if (fdef->fdefargs notnullptr) {
+		fdef->fdefargs[fdef->fdefargs_size - 1] = arg;
+	}
+
+	while (parser->thistoken->type == TOKEN_COMMA) {
+		ps_eat(parser, TOKEN_COMMA);
+
+		fdef->fdefargs_size += 1;
+
+		struct AST_STRUCT** t = realloc(fdef->fdefargs, fdef->fdefargs_size * sizeof(struct AST_STRUCT));
+		if (t != NULL) fdef->fdefargs = t;
+
+		AST_T* arg = ps_parseSrc(parser, scope);
+
+		if (fdef->fdefargs notnullptr) {
+			fdef->fdefargs[fdef->fdefargs_size - 1] = arg;
+		}
+		
+		
+	}
+
 	ps_eat(parser, TOKEN_RIGHTP);
 	ps_eat(parser, TOKEN_LEFTBR);
 
@@ -135,7 +163,6 @@ AST_T* ps_parseFCall(parser_T* parser, scope_T* scope) {
 		fcall->fcall_args[0] = astExpr;
 		fcall->fcall_argsize += 1;
 	}
-		
 
 	while (parser->thistoken->type == TOKEN_COMMA) {
 		ps_eat(parser, TOKEN_COMMA);
@@ -144,7 +171,8 @@ AST_T* ps_parseFCall(parser_T* parser, scope_T* scope) {
 		fcall->fcall_argsize += 1;
 
 		if (fcall->fcall_args notnullptr) {
-			fcall->fcall_args = realloc(fcall->fcall_args, fcall->fcall_argsize * sizeof(struct AST_STRUCT*));
+			struct AST_STRUCT** c = realloc(fcall->fcall_args, fcall->fcall_argsize * sizeof(struct AST_STRUCT*));
+			if (c != NULL) fcall->fcall_args = c;
 			if (fcall->fcall_args notnullptr) {
 				fcall->fcall_args[fcall->fcall_argsize - 1] = astExpr;
 			}

@@ -26,6 +26,8 @@ typedef struct AST_STRUCT {
 	/* AST_FUNCTION_DEF */
 	char* fdefname;
 	struct AST_STRUCT* fdefbody;
+	struct AST_STRUCT** fdefargs;
+	size_t fdefargs_size;
 
 	/* AST_FUNCTION_CALL */
 	char* fcallname;

@@ -4,8 +4,7 @@
 #include "AST.h"
 
 typedef struct VISITOR_STRUCT {
-	AST_T** srcdefs;
-	size_t srcdefs_size;
+	int status;
 } visitor_T;
 
 visitor_T* init_visitor();

@@ -42,7 +42,9 @@ AST_T* ps_parse(parser_T* parser, scope_T* scope) {
 AST_T* ps_parseStatement(parser_T* parser, scope_T* scope) {
 	//printf("type: %d\n", parser->thistoken->type);
 	switch (parser->thistoken->type) {
+	case TOKEN_NEGATIVE: return ps_parseNumber(parser, scope);
 	case TOKEN_ID: return ps_parseID(parser, scope);
+	case TOKEN_NUMBER: return ps_parseNumber(parser, scope);
 	}
 	return init_ast(AST_NOOP);
 };
@@ -85,6 +87,8 @@ AST_T* ps_parseExpr(parser_T* parser, scope_T* scope) {
 	switch (parser->thistoken->type) {
 	case TOKEN_STRINGEXPR: return ps_parseStr(parser, scope);
 	case TOKEN_ID: return ps_parseID(parser, scope);
+	case TOKEN_NUMBER: return ps_parseNumber(parser, scope);
+	case TOKEN_NEGATIVE: return ps_parseNumber(parser, scope);
 	}
 
 	return init_ast(AST_NOOP);
@@ -244,4 +248,33 @@ AST_T* ps_parseID(parser_T* parser, scope_T* scope) {
 	else {
 		return ps_parseSrc(parser, scope);
 	}
+};
+
+AST_T* ps_parseNumber(parser_T* parser, scope_T* scope) {
+	int sign = 1;
+	if (parser->thistoken->type == TOKEN_NEGATIVE) {
+		if (parser->prevtoken->type != TOKEN_NUMBER) {
+			sign = -1;
+			ps_eat(parser, TOKEN_NEGATIVE);
+		}
+		else ps_eat(parser, TOKEN_NEGATIVE);
+	}
+
+	 
+	for (int i = 0; i < strlen(parser->thistoken->value); i++) {
+		if (parser->thistoken->value[i] == '.') {
+			AST_T* tmp = init_ast(AST_FLOAT);
+			tmp->floatvalue = (double) (atof(parser->thistoken->value) * sign);
+			//printf("double: %f\n", atof(parser->thistoken->value));
+			ps_eat(parser, TOKEN_NUMBER);
+			tmp->scope = scope;
+			return tmp;
+		}
+	}
+
+	AST_T* tmp = init_ast(AST_INT);
+	tmp->intvalue = (int)(atoi(parser->thistoken->value) * sign);
+	tmp->scope = scope;
+	ps_eat(parser, TOKEN_NUMBER);
+	return tmp;
 };

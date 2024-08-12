@@ -21,6 +21,8 @@ token_T* lx_collectstr(lexer_T* lexer);
 
 token_T* lx_collectid(lexer_T* lexer);
 
+token_T* lx_collectnum(lexer_T* lexer);
+
 token_T* lx_advanceWtoken(lexer_T* lexer, token_T* token);
 
 char* lx_ccharToString(lexer_T* lexer);

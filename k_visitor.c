@@ -11,6 +11,8 @@ static AST_T* builtin_printc(visitor_T* visitor, AST_T** args, int args_size) {
 		//printf("%d\n", visited_ast->type);
 		switch (visited_ast->type) {
 			case AST_STRINGEXPR: printf("%s\n", visited_ast->strvalue); break;
+			case AST_INT: printf("%d\n", visited_ast->intvalue); break;
+			case AST_FLOAT: printf("%f\n", visited_ast->floatvalue); break;
 			default:("%p\n", visited_ast);
 		}
 		
@@ -27,6 +29,7 @@ visitor_T* init_visitor() {
 	if (visitor notnullptr) {
 		visitor->status = 1;
 	}
+	return visitor;
 }
 
 AST_T* vt_visit(visitor_T* visitor, AST_T* node) {
@@ -36,6 +39,8 @@ AST_T* vt_visit(visitor_T* visitor, AST_T* node) {
 	case AST_SRC: return vt_VSrc(visitor, node); break;
 	case AST_FUNCTION_DEF: return vt_VFDef(visitor, node); break;
 	case AST_FUNCTION_CALL: return vt_VFCall(visitor, node); break;
+	case AST_INT: return vt_Vreturn(visitor, node);break;
+	case AST_FLOAT: return vt_Vreturn(visitor, node); break;;
 	case AST_STRINGEXPR: return vt_VStr(visitor, node); break;
 	case AST_COMPOUND: return vt_VCompound(visitor, node); break;
 	case AST_NOOP: return node; break;
@@ -115,4 +120,9 @@ AST_T* vt_VCompound(visitor_T* visitor, AST_T* node) {
 	}
 
 	return init_ast(AST_NOOP);
+};
+
+///
+AST_T* vt_Vreturn(visitor_T* visitor, AST_T* node) {
+	return node;
 };

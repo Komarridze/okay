@@ -1,5 +1,3 @@
-alias fuckAround(andFindOut, evenMore) {
-printc(andFindOut, evenMore);
-};
+src name = 4;
 
-fuckAround("yeah", "that works");
+printc(name);

@@ -23,5 +23,5 @@ AST_T* vt_VStr(visitor_T* visitor, AST_T* node);
 
 AST_T* vt_VCompound(visitor_T* visitor, AST_T* node);
 
-
+AST_T* vt_Vreturn(visitor_T* visitor, AST_T* node);
 #endif // !K_VISITOR_H

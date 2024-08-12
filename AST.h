@@ -11,7 +11,12 @@ typedef struct AST_STRUCT {
 		AST_SRC_DEF,
 		AST_STRINGEXPR,
 		AST_COMPOUND,
-		AST_NOOP
+		AST_NOOP,
+
+		AST_INT,
+		AST_FLOAT,
+
+		AST_ASMD
 	} type;
 
 	struct SCOPE_STRUCT* scope;
@@ -40,6 +45,18 @@ typedef struct AST_STRUCT {
 	/* AST_COMPOUND */
 	struct AST_STRUCT** compound_value;
 	size_t compound_size;
+
+	/* AST_ASMD */
+	int operation; // 0 for +, 1 for -
+	struct AST_STRUCT* LHS;
+	struct AST_STRUCT* RHS;
+
+	/* AST_INT */
+	int intvalue;
+
+	/* AST_FLOAT */
+	double floatvalue;
+
 } AST_T;
 
 AST_T* init_ast(int type);

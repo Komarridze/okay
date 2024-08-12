@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
+#include "stdbool.h"
 
 #define notnullptr != '\0'
  
@@ -48,7 +49,7 @@ token_T* lx_nexttoken(lexer_T* lexer) {
 		
 		switch (lexer->c) {
 		
-		
+		case '-': return lx_advanceWtoken(lexer, init_token(TOKEN_NEGATIVE, lx_ccharToString(lexer))); break;
 		case '@': return lx_advanceWtoken(lexer, init_token(TOKEN_CAST, lx_ccharToString(lexer))); break;
 		case ',': return lx_advanceWtoken(lexer, init_token(TOKEN_COMMA, lx_ccharToString(lexer))); break;
 		case '=': return lx_advanceWtoken(lexer, init_token(TOKEN_EQUALS, lx_ccharToString(lexer))); break;
@@ -105,7 +106,42 @@ token_T* lx_collectid(lexer_T* lexer) {
 
 		value[0] = '\0';
 
+		if (isdigit(lexer->c) != 0) {
+			return lx_collectnum(lexer);
+		}
+
 		while (isalnum(lexer->c)) {
+
+			char* s = lx_ccharToString(lexer);
+			char* x = realloc(value, (strlen(value) + strlen(s) + 1) * sizeof(char));
+			if (x != '\0') {
+				value = x;
+				strcat_s(value, (strlen(value) + strlen(s) + 1) * sizeof(char), s);
+			}
+			lx_advance(lexer);
+
+		}
+		//printf("value:%s\n", value);
+		return init_token(TOKEN_ID, value);
+
+	}
+};
+
+token_T* lx_collectnum(lexer_T* lexer) {
+	char* value = calloc(1, sizeof(char));
+
+	if (value notnullptr) {
+		bool isFloat = false;
+		// we still have a char here
+		while ((isdigit(lexer->c) != 0 || lexer->c == '.')) { // collect Number
+			if (lexer->c == '.') {
+				if (!isFloat) isFloat = true;
+				else {
+					lx_advance(lexer);
+					continue;
+				};
+			}
+
 			char* s = lx_ccharToString(lexer);
 			char* x = realloc(value, (strlen(value) + strlen(s) + 1) * sizeof(char));
 			if (x != '\0') {
@@ -115,11 +151,14 @@ token_T* lx_collectid(lexer_T* lexer) {
 
 			lx_advance(lexer);
 
+			continue;
 		}
 
-		return init_token(TOKEN_ID, value);
-
 	}
+	//printf("collect: %s\n", value);
+	return init_token(TOKEN_NUMBER, value);
+
+	
 };
 
 

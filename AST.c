@@ -32,6 +32,17 @@ AST_T* init_ast(int type) {
 		/* AST_COMPOUND */
 		ast->compound_value = (void*)0;
 		ast->compound_size = 0;
+
+		/* AST_ASMD */
+		ast->operation = 0; // 0 for +, 1 for -
+		ast->LHS = (void*)0;
+		ast->RHS = (void*)0;
+
+		/* AST_INT */
+		int intvalue = 0;
+
+		/* AST_FLOAT */
+		double floatvalue = (double)0;
 	}
 
 	return ast;

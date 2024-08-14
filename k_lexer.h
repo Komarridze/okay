@@ -1,6 +1,4 @@
 #pragma once
-#ifndef K_LEXER_H
-#define K_LEXER_H
 #include "k_token.h"
 
 typedef struct LEXER_STRUCT {
@@ -27,6 +25,6 @@ token_T* lx_advanceWtoken(lexer_T* lexer, token_T* token);
 
 char* lx_ccharToString(lexer_T* lexer);
 
-#endif // !LEXER_H
+
 
 

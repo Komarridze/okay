@@ -1,6 +1,4 @@
 #pragma once
-#ifndef K_PARSER_H
-#define K_PARSER_H
 #include "k_token.h"
 #include "k_lexer.h"
 #include "AST.h"
@@ -43,4 +41,3 @@ AST_T* ps_parseStr(parser_T* parser, scope_T* scope);
 AST_T* ps_parseID(parser_T* parser, scope_T* scope);
 
 AST_T* ps_parseNumber(parser_T* parser, scope_T* scope);
-#endif // !K_PARSER_H

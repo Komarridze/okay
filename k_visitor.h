@@ -1,6 +1,4 @@
 #pragma once
-#ifndef K_VISITOR_H
-#define K_VISITOR_H
 #include "AST.h"
 
 typedef struct VISITOR_STRUCT {
@@ -24,4 +22,4 @@ AST_T* vt_VStr(visitor_T* visitor, AST_T* node);
 AST_T* vt_VCompound(visitor_T* visitor, AST_T* node);
 
 AST_T* vt_Vreturn(visitor_T* visitor, AST_T* node);
-#endif // !K_VISITOR_H
+

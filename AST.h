@@ -1,6 +1,4 @@
 #pragma once
-#ifndef AST_H
-#define AST_H
 #include <stdlib.h>
 
 typedef struct AST_STRUCT {
@@ -60,4 +58,3 @@ typedef struct AST_STRUCT {
 } AST_T;
 
 AST_T* init_ast(int type);
-#endif // !AST_H

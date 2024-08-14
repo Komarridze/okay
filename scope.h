@@ -1,6 +1,4 @@
 #pragma once
-#ifndef SCOPE_H
-#define SCOPE_H
 #include "AST.h"
 
 typedef struct SCOPE_STRUCT {
@@ -21,4 +19,4 @@ AST_T* scope_getfdef(scope_T* scope, const char* fname);
 AST_T* scope_addsrcdef(scope_T* scope, AST_T* fdef);
 
 AST_T* scope_getsrcdef(scope_T* scope, const char* fname);
-#endif // !SCOPE_H
+

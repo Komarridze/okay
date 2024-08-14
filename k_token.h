@@ -1,6 +1,4 @@
 #pragma once
-#ifndef K_TOKEN_H
-#define K_TOKEN_H
 typedef struct TOKEN_STRUCT
 {
 	enum 
@@ -35,4 +33,4 @@ typedef struct TOKEN_STRUCT
 
 token_T* init_token(int type, char* value);
 
-#endif // !K_TOKEN_H
+

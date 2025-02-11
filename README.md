@@ -1,3 +1,3 @@
-# K Lang
+# okay?
 
-A programming language featuring no runtime errors.
+A multipurpose self-fixing programming language.

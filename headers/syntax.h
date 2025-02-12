@@ -1,9 +1,14 @@
-#pragma once
+#ifndef K_SYNTAX_H
+#define K_SYNTAX_H
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "../utools/definitions.h"
 
+enum 
+{
 
-enum {
-
-	EOF, // end-of-file
+	TEOF, // end-of-file
 
 	CAST, // &
 
@@ -104,19 +109,39 @@ KFIX // fix / coverup
 
 } Ttype;
 
-typedef struct {
+typedef struct // okay.syntax.token
+{
 
 	int type;
 	char* contents;
 
 } Token;
 
-typedef struct {
+typedef struct // okay.syntax.lexer
+{
 	int line;
-	int symbol;
+	size_t symbol;
+
 	char* src;
+	size_t size;
+
 } Lexer;
 
-Token* tokenize(char* code) {
+// Creates a new Lexer Object.
+// [okay.syntax.lnew]
+_nooverflow Lexer* lnew(char* source_code);
 
-}
+// Tokenizes the input string.
+// [okay.syntax.ltokenize]
+_nooverflow void ltokenize(Lexer* lexer, char* code);
+
+// Scrolls to the next character inside of a Lexer Object.
+// [okay.syntax.lnext]
+_nooverflow void lnext(Lexer* lexer);
+
+// Returns the next character inside a Lexer Source String, 
+// or nullchar if there are no more characters to read.
+// [okay.syntax.lpeek]
+_nooverflow char lpeek(Lexer* lexer);
+
+#endif

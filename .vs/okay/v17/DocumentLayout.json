@@ -3,16 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\okay\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\root\\clutch.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:root\\clutch.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\syntax.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:headers\\syntax.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\error.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:headers\\error.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\root\\error.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:root\\error.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\root\\syntax.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:root\\syntax.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\root\\clutch.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:root\\clutch.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\utools\\definitions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:utools\\definitions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\cpp.hint||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:cpp.hint||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\corecrt_search.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppCommon.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vcruntime.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\string.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,43 +54,155 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
+              "Title": "cpp.hint",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\cpp.hint",
+              "RelativeDocumentMoniker": "cpp.hint",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\cpp.hint",
+              "RelativeToolTip": "cpp.hint",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-02-12T19:59:14.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "error.c",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\error.c",
+              "RelativeDocumentMoniker": "root\\error.c",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\error.c",
+              "RelativeToolTip": "root\\error.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-02-12T19:45:09.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "error.h",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\error.h",
+              "RelativeDocumentMoniker": "headers\\error.h",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\error.h",
+              "RelativeToolTip": "headers\\error.h",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAAAYAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-12T19:42:32.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "syntax.c",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\syntax.c",
               "RelativeDocumentMoniker": "root\\syntax.c",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\syntax.c",
               "RelativeToolTip": "root\\syntax.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-02-11T19:47:42.94Z",
+              "WhenOpened": "2025-02-12T19:14:10.927Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
+              "Title": "vcruntime.h",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vcruntime.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vcruntime.h",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vcruntime.h",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vcruntime.h",
+              "ViewState": "AQIAAKwAAAAAAAAAAAAMwLoAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-12T18:47:25.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "definitions.h",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\utools\\definitions.h",
+              "RelativeDocumentMoniker": "utools\\definitions.h",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\utools\\definitions.h",
+              "RelativeToolTip": "utools\\definitions.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-12T18:40:14.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "string.h",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\string.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\string.h",
+              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\string.h",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\string.h",
+              "ViewState": "AQIAACcBAAAAAAAAAAAMwDoBAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-12T18:34:16.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-02-12T18:29:59.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Microsoft.CppCommon.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppCommon.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppCommon.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppCommon.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.CppCommon.targets",
+              "ViewState": "AQIAAN0CAAAAAAAAAAArwPICAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-02-12T18:22:19.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "corecrt_search.h",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\corecrt_search.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\corecrt_search.h",
+              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\corecrt_search.h",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\corecrt_search.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-12T18:19:47.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "syntax.h",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\syntax.h",
               "RelativeDocumentMoniker": "headers\\syntax.h",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\syntax.h",
               "RelativeToolTip": "headers\\syntax.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHMAAAAMAAAA",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAowI8AAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-02-11T19:44:45.162Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "clutch.c",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\clutch.c",
               "RelativeDocumentMoniker": "root\\clutch.c",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\clutch.c",
               "RelativeToolTip": "root\\clutch.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-02-11T19:41:20.259Z",
               "EditorCaption": ""

@@ -21,10 +21,23 @@
     <ClCompile Include="root\syntax.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="root\error.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\syntax.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="utools\definitions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

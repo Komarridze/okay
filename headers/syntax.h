@@ -3,14 +3,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include "../utools/definitions.h"
 
 enum 
 {
 
-	TEOF, // end-of-file
+	TEOF = -1, // end-of-file
+
+	NOTHING = 0, // nothing
 
 	CAST, // &
+	SEPARATE, // |
 
 	/* TYPE IDENTIFIERS */
 
@@ -25,13 +29,9 @@ enum
 	BTRUE, // true
 	BFALSE, // false
 
-	NOTHING, // nothing
-	NAME, // Object
-
-	NUMBER, // 0.4f
-	POSTFIX, //   f
-
-	STRING, // "lol"
+	NAME = 11, // Object
+	NUMBER = 12, // 0.4f
+	STRING = 13, // "lol"
 
 	PLUS, // +
 	MINUS, // -
@@ -49,63 +49,67 @@ enum
 	LCBRA, // {
 	RCBRA, // }
 
-	SEMICOLON, // ;
+	SEMICOLON = 25, // ;
 	COMMA, // ,
 	PERIOD, // .
 
 	ASN, // = (assign)
+	NEG, // ! (not)
 	NEQ, // !=
 	CMP, // ==
 	LSS, // <
 	GTR, // >
 	LEQ, // <=
-	REQ, // >=
+	GEQ, // >=
 
 	LAND, // &&
 	LOR, // ||
 	LXOR, // ^
 
+	ARROW, // ->
 
 	/* KEYWORDS */
 
 		/* STRUCTS */
 
-	KALI, // alias
-	KSCH, // schematic
-	KORI, // oriented
+	KALI = 40, // alias
+	KGLO = 41, // global
+	KSVV = 42, // save
+	KSCH = 43, // schematic
+	KORI = 44, // oriented
 
 	/* SIMPLE */
 
-// CONTROL
+	// CONTROL
 
-KIF,
-KELSE,
-KFOR,
-KWHILE,
-KBREAK,
-KCONTINUE,
-KRETURN,
-KREST,
-
-
-// LOGIC
-
-KAND, // and
-KOR, // or
-KNOT,
+	KIF,
+	KELSE,
+	KFOR,
+	KWHILE,
+	KBREAK,
+	KCONTINUE,
+	KRETURN,
+	KREST,
 
 
-// OTHER
+	// LOGIC
 
-KIN,
-KGET,
-KBURN,
+	KAND, // and
+	KOR, // or
+	KNOT, // not
 
-// EXCEPTIONS
 
-KTRY, // try / fuckaround
-KCATCH, // catch / findout
-KFIX // fix / coverup
+	// OTHER
+
+	KIN,
+	KGET,
+	KBURN,
+
+	// EXCEPTIONS
+
+	KTRY, // try / fuckaround
+	KCATCH, // catch / findout
+	KFIX // fix / coverup
 
 } Ttype;
 
@@ -127,13 +131,17 @@ typedef struct // okay.syntax.lexer
 
 } Lexer;
 
+// Create a new Token.
+// [okay.syntax.tnew]
+_nooverflow Token* tnew(int type, char* contents);
+
 // Creates a new Lexer Object.
 // [okay.syntax.lnew]
 _nooverflow Lexer* lnew(char* source_code);
 
 // Tokenizes the input string.
 // [okay.syntax.ltokenize]
-_nooverflow void ltokenize(Lexer* lexer, char* code);
+_exceptoverflow Token* ltokenize(Lexer* lexer);
 
 // Scrolls to the next character inside of a Lexer Object.
 // [okay.syntax.lnext]
@@ -143,5 +151,27 @@ _nooverflow void lnext(Lexer* lexer);
 // or nullchar if there are no more characters to read.
 // [okay.syntax.lpeek]
 _nooverflow char lpeek(Lexer* lexer);
+
+
+// DETERMINE TOKENS
+
+// Tokenizes a name — an alphanumeric (including underscores)
+// char sequence that ends in a null terminator.
+// [okay.syntax.ltokenizeName]
+_unified _nooverflow Token* ltokenizeName(Lexer* lexer);
+
+// Tokenizes a number — a numeric (with a possible postfix f, b, h)
+// char sequence that ends in a null terminator.
+// [okay.syntax.ltokenizeNumber]
+_unified _nooverflow Token* ltokenizeNumber(Lexer* lexer);
+
+
+// ADDITIONALS
+
+// Checks whether a given name is a reserved keyword
+// and creates a corresponding token.
+// [okay.syntax.lkeywordTable]
+_unhandled Token* lkeywordTable(Lexer* lexer, char* name);
+
 
 #endif

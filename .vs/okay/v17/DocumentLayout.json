@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\okay\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\root\\clutch.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:root\\clutch.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\syntax.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:headers\\syntax.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\error.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:headers\\error.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\root\\error.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:root\\error.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\root\\syntax.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:root\\syntax.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\utools\\definitions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:utools\\definitions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\root\\clutch.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:root\\clutch.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\root\\error.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:root\\error.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\error.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:headers\\error.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\cpp.hint||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:cpp.hint||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\utools\\definitions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|solutionrelative:utools\\definitions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC69BF67-997C-436A-92A4-E69603F49D27}|okay.vcxproj|C:\\Users\\User\\Documents\\GitHub\\okay\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
@@ -42,9 +42,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.40.33807\\include\\vcruntime.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\string.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,17 +51,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "cpp.hint",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\cpp.hint",
               "RelativeDocumentMoniker": "cpp.hint",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\cpp.hint",
               "RelativeToolTip": "cpp.hint",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-02-12T19:59:14.843Z",
               "EditorCaption": ""
@@ -77,35 +74,22 @@
               "RelativeDocumentMoniker": "root\\error.c",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\error.c",
               "RelativeToolTip": "root\\error.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-02-12T19:45:09.048Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "error.h",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\error.h",
               "RelativeDocumentMoniker": "headers\\error.h",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\error.h",
               "RelativeToolTip": "headers\\error.h",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAAAAYAAAAUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-02-12T19:42:32.354Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "syntax.c",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\syntax.c",
-              "RelativeDocumentMoniker": "root\\syntax.c",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\syntax.c",
-              "RelativeToolTip": "root\\syntax.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-02-12T19:14:10.927Z",
               "EditorCaption": ""
             },
             {
@@ -122,28 +106,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "definitions.h",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\utools\\definitions.h",
               "RelativeDocumentMoniker": "utools\\definitions.h",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\utools\\definitions.h",
               "RelativeToolTip": "utools\\definitions.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAIAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAABpAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-02-12T18:40:14.095Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "string.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\string.h",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\string.h",
-              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\string.h",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\string.h",
-              "ViewState": "AQIAACcBAAAAAAAAAAAMwDoBAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-12T18:34:16.826Z"
             },
             {
               "$type": "Document",
@@ -184,25 +156,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "syntax.c",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\syntax.c",
+              "RelativeDocumentMoniker": "root\\syntax.c",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\syntax.c",
+              "RelativeToolTip": "root\\syntax.c",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACwAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-02-12T19:14:10.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "syntax.h",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\syntax.h",
               "RelativeDocumentMoniker": "headers\\syntax.h",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\headers\\syntax.h",
               "RelativeToolTip": "headers\\syntax.h",
-              "ViewState": "AQIAAG8AAAAAAAAAAAAowI8AAAAWAAAA",
+              "ViewState": "AQIAAJUAAAAAAAAAAAAAAK0AAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-02-11T19:44:45.162Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "clutch.c",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\clutch.c",
               "RelativeDocumentMoniker": "root\\clutch.c",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\okay\\root\\clutch.c",
               "RelativeToolTip": "root\\clutch.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-02-11T19:41:20.259Z",
               "EditorCaption": ""

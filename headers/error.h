@@ -5,10 +5,10 @@
 
 // Displays a warning.
 // [okay.error.warn]
-_errorhandling void warn(short code, char* details);
+_errorhandling void warn(short code, int line, char* details);
 
 // Emits an error.
 // [okay.error.error]
-_errorhandling void error(short code, char* details);
+_errorhandling void error(short code, int line, char* details);
 
 #endif

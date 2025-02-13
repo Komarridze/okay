@@ -1,3 +1,6 @@
-﻿  clutch.c
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(755,5): error : Element <LanguageStandard_C> has an invalid value of "/std:clatest".
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(755,5): error MSB6011: Invalid parameters passed to the Microsoft.Build.CPPTasks.CL task.
+﻿  syntax.c
+C:\Users\User\Documents\GitHub\okay\root\syntax.c(26,1): warning C4715: 'lnew': not all control paths return a value
+C:\Users\User\Documents\GitHub\okay\root\syntax.c(43,1): warning C4715: 'tnew': not all control paths return a value
+C:\Users\User\Documents\GitHub\okay\root\syntax.c(205,1): warning C4715: 'ltokenizeName': not all control paths return a value
+C:\Users\User\Documents\GitHub\okay\root\syntax.c(271,1): warning C4715: 'ltokenizeNumber': not all control paths return a value
+  okay.vcxproj -> C:\Users\User\Documents\GitHub\okay\x64\Debug\okay.exe

@@ -11,10 +11,15 @@
 
 
 int main() {
+	
+	Lexer* lexer = lnew("blablabla 0.4f");
+	Token* t;
 
-	Lexer* lexer = lnew("blablabla");
+	while ((t = ltokenize(lexer))->type != TEOF) {
+		printf("%d %s", t->type, t->contents);
+	}
+	
 
-	ltokenize(lexer, lexer->src);
 
 	return 0;
 

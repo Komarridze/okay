@@ -2,5 +2,8 @@
 // such as names of functions and macros.
 // For more information see https://go.microsoft.com/fwlink/?linkid=865984
 
+#define _unhandled
+#define _unified
+#define _exceptoverflow
 #define _nooverflow
 #define _errorhandling

@@ -1,3 +1,3 @@
 # okay?
 
-A multipurpose self-fixing programming language.
+A multipurpose programming language.

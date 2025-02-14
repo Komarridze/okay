@@ -29,10 +29,15 @@
   <ItemGroup>
     <ClCompile Include="root\clutch.c" />
     <ClCompile Include="root\error.c" />
+    <ClCompile Include="root\generic.c" />
     <ClCompile Include="root\syntax.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\decl.h" />
     <ClInclude Include="headers\error.h" />
+    <ClInclude Include="headers\node.h" />
+    <ClInclude Include="headers\object.h" />
+    <ClInclude Include="headers\scope.h" />
     <ClInclude Include="headers\syntax.h" />
     <ClInclude Include="utools\definitions.h" />
   </ItemGroup>

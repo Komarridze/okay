@@ -113,7 +113,7 @@ enum
 
 } Ttype;
 
-typedef struct // okay.syntax.token
+typedef struct Token // okay.syntax.token
 {
 
 	int type;
@@ -121,7 +121,7 @@ typedef struct // okay.syntax.token
 
 } Token;
 
-typedef struct // okay.syntax.lexer
+typedef struct Lexer // okay.syntax.lexer
 {
 	int line;
 	size_t symbol;

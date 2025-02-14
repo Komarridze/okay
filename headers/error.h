@@ -1,6 +1,7 @@
 #ifndef K_ERROR_H
 #define K_ERROR_H
-#include "stdio.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include "../utools/definitions.h"
 
 // Displays a warning.

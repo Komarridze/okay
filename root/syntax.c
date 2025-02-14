@@ -3,7 +3,7 @@
 
 _nooverflow Lexer* lnew(char* source_code) {
 
-	Lexer* lexer = (Lexer*)calloc(1, sizeof(Lexer));
+	Lexer* lexer = (Lexer*)calloc(1, sizeof(struct Lexer));
 
 	if (lexer) {
 
@@ -19,6 +19,7 @@ _nooverflow Lexer* lnew(char* source_code) {
 
 	else {
 		error(0, -1, "syntax.c");
+		return NULL;
 	}
 
 
@@ -26,7 +27,7 @@ _nooverflow Lexer* lnew(char* source_code) {
 }
 
 _nooverflow Token* tnew(int type, char* contents) {
-	Token* t = (Token*)calloc(1, sizeof(Token));
+	Token* t = (Token*)calloc(1, sizeof(struct Token));
 
 	if (t) {
 
@@ -38,6 +39,7 @@ _nooverflow Token* tnew(int type, char* contents) {
 
 	else {
 		error(0, -1, "syntax.c");
+		return NULL;
 	}
 
 }
@@ -200,6 +202,7 @@ _unified _nooverflow Token* ltokenizeName(Lexer* lexer)
 	else
 	{
 		error(0, -1, "syntax.c");
+		return NULL;
 	}
 	
 }
@@ -266,6 +269,7 @@ _unified _nooverflow Token* ltokenizeNumber(Lexer* lexer)
 	else
 	{
 		error(0, -1, "syntax.c");
+		return NULL;
 	}
 
 }

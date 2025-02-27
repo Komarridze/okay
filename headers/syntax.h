@@ -6,7 +6,7 @@
 #include <ctype.h>
 #include "../utools/definitions.h"
 
-enum 
+enum
 {
 
 	TEOF = -1, // end-of-file
@@ -31,7 +31,7 @@ enum
 
 	NAME = 11, // Object
 	NUMBER = 12, // 0.4f
-	STRING = 13, // "lol"
+	STRINGEXPR = 13, // "lol"
 
 	PLUS, // +
 	MINUS, // -
@@ -77,6 +77,7 @@ enum
 	KSVV = 42, // save
 	KSCH = 43, // schematic
 	KORI = 44, // oriented
+	KCOM = 45,
 
 	/* SIMPLE */
 
@@ -165,13 +166,15 @@ _unified _nooverflow Token* ltokenizeName(Lexer* lexer);
 // [okay.syntax.ltokenizeNumber]
 _unified _nooverflow Token* ltokenizeNumber(Lexer* lexer);
 
+_unified _nooverflow Token* ltokenizeString(Lexer* lexer);
 
 // ADDITIONALS
 
 // Checks whether a given name is a reserved keyword
 // and creates a corresponding token.
 // [okay.syntax.lkeywordTable]
-_unhandled Token* lkeywordTable(Lexer* lexer, char* name);
+_unhandled _nooverflow Token* lkeywordTable(Lexer* lexer, char* name);
+
 
 
 #endif

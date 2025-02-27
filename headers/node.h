@@ -9,7 +9,7 @@ enum
 {
 	RET = -1,
 
-	NOTHING = 0,
+	// NOTHING = 0, [DECLARED IN TTYPE]
 	OBJECT = 1,
 	DECLARATION = 2,
 	OPERATION = 3,
@@ -36,7 +36,7 @@ enum
 
 	// UNARY
 	CALL = 5, // CALL IS APPLIED TO Object* function
-	NEG = 6,
+	NEGATIVE = 6,
 
 	// BINARY
 	ADD = 7,
@@ -86,9 +86,5 @@ typedef struct Node// okay.generic.node
 // Creates a new node.
 // [okay.node.crnode]
 _unhandled Node* crnode();
-
-
-
-
 
 #endif

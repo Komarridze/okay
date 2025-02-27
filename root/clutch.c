@@ -1,4 +1,5 @@
 #include "../headers/syntax.h"
+#include "../headers/parser.h"
 
 // This is the main entry for the Clutch Combiner.
 // Any change could cause severe damage to program execution.
@@ -12,12 +13,18 @@
 
 int main() {
 	
-	Lexer* lexer = lnew("blablabla 0.4f");
-	Token* t;
+	Lexer* lexer = lnew("\"loh\nebaniy\"");
+	
+	//Parser* parser = psnew(lexer);
+	//parser->scope = scnew();
 
+
+	
+	Token* t;
 	while ((t = ltokenize(lexer))->type != TEOF) {
-		printf("%d %s", t->type, t->contents);
+		printf("%d %s \n", t->type, t->contents);
 	}
+	
 	
 
 

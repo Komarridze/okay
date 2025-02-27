@@ -74,75 +74,97 @@ _exceptoverflow Token* ltokenize(Lexer* lexer)
 
 		}
 
+		if (lexer->src[lexer->symbol] == '"')
+		{
+			return ltokenizeString(lexer);
+		}
+
 		switch (lexer->src[lexer->symbol]) 
 		{
 		
 //		ALWAYS ADD BREAK SAFEGUARDS
 
-		case '+': return tnew(PLUS, "+"); break;
-		case '-': return tnew(MINUS, "-"); break;
-		case '*': return tnew(TIMES, "*"); break;
-		case '/': return tnew(SLASH, "/"); break;
+		case '+': lnext(lexer); return tnew(PLUS, "+"); break;
+		case '-': lnext(lexer); return tnew(MINUS, "-"); break;
+		case '*': lnext(lexer); return tnew(TIMES, "*"); break;
+		case '/': lnext(lexer); return tnew(SLASH, "/"); break;
 
-		case '%': return tnew(MOD, "%"); break;
+		case '%': lnext(lexer); return tnew(MOD, "%"); break;
 
-		case '(': return tnew(LPAREN, "("); break;
-		case ')': return tnew(RPAREN, ")"); break;
+		case '(': lnext(lexer); return tnew(LPAREN, "("); break;
+		case ')': lnext(lexer); return tnew(RPAREN, ")"); break;
 
-		case '[': return tnew(LBRACK, "["); break;
-		case ']': return tnew(RBRACK, "]"); break;
+		case '[': lnext(lexer); return tnew(LBRACK, "["); break;
+		case ']': lnext(lexer); return tnew(RBRACK, "]"); break;
 
-		case '{': return tnew(LCBRA, "{"); break;
-		case '}': return tnew(RCBRA, "}"); break;
+		case '{': lnext(lexer); return tnew(LCBRA, "{"); break;
+		case '}': lnext(lexer); return tnew(RCBRA, "}"); break;
 
-		case ';': return tnew(SEMICOLON, ";"); break;
-		case ',': return tnew(COMMA, ","); break;
-		case '.': return tnew(PERIOD, "."); break;
+		case ';': lnext(lexer); return tnew(SEMICOLON, ";"); break;
+		case ',': lnext(lexer); return tnew(COMMA, ","); break;
+		case '.': lnext(lexer); return tnew(PERIOD, "."); break;
 
-		case '^': return tnew(LXOR, "^"); break;
+		case '^': lnext(lexer); return tnew(LXOR, "^"); break;
 
 		case '=': // ==
-			if (lpeek(lexer) == '=') return tnew(CMP, "==");
+			if (lpeek(lexer) == '=')
+			{
+				lnext(lexer);
+				return tnew(CMP, "==");
+			}
 			else return tnew(ASN, "=");
+			lnext(lexer);
 			break;
 
 		case '!': // !=
-			if (lpeek(lexer) == '=') return tnew(NEQ, "!=");
+			if (lpeek(lexer) == '=') 
+			{
+				lnext(lexer);
+				return tnew(NEQ, "!=");
+			}
 			else return tnew(NEG, "!");
+			lnext(lexer);
 			break;
 
 		case '<': // <=
-			if (lpeek(lexer) == '=') return tnew(LEQ, "<=");
+			if (lpeek(lexer) == '=') 
+			{
+				lnext(lexer);
+				return tnew(LEQ, "<=");
+			}
 			else return tnew(LSS, "<");
+			lnext(lexer);
 			break;
 
 		case '>': // >=
-			if (lpeek(lexer) == '=') return tnew(GEQ, ">=");
+			if (lpeek(lexer) == '=') 
+			{
+				lnext(lexer);
+				return tnew(GEQ, ">=");
+			}
 			else return tnew(GTR, ">");
+			lnext(lexer);
 			break;
 
 		case '&': // &&
-			if (lpeek(lexer) == '&') return tnew(LAND, "&&");
+			if (lpeek(lexer) == '&') 
+			{
+				lnext(lexer);
+				return tnew(LAND, "&&");
+			}
 			else return tnew(CAST, "&");
+			lnext(lexer);
 			break;
 
 		case '|': // ||
-			if (lpeek(lexer) == '|') return tnew(LOR, "||");
+			if (lpeek(lexer) == '|') 
+			{
+				lnext(lexer);
+				return tnew(LOR, "||");
+			}
 			else return tnew(SEPARATE, "|");
+			lnext(lexer);
 			break;
-
-			
-			
-
-
-
-
-
-
-
-
-
-
 
 
 		}
@@ -274,9 +296,57 @@ _unified _nooverflow Token* ltokenizeNumber(Lexer* lexer)
 
 }
 
+_unified _nooverflow Token* ltokenizeString(Lexer* lexer)
+{
+	// CALCULATE
+	size_t strlen = 1;
+
+	lnext(lexer); // LEADING "
+	size_t start = lexer->symbol;
+
+
+	while (lexer->src[lexer->symbol] != '"' && lexer->src[lexer->symbol] != '\0')
+	{
+		if (lexer->src[lexer->symbol] == '\\')
+		{
+			strlen++;
+			lnext(lexer);
+		}
+
+		strlen++;
+		lnext(lexer);
+	}
+
+	lexer->symbol = start;
+
+	char* str = calloc(strlen, sizeof(char));
+
+	if (str)
+	{
+		for (size_t i = 0; i < strlen - 1; i++)
+		{
+			str[i] = lexer->src[lexer->symbol];
+			lnext(lexer);
+		}
+		str[strlen - 1] = '\0';
+
+		lnext(lexer); // TRAILING "
+
+		return tnew(STRINGEXPR, str);
+	}
+
+	else
+	{
+		error(0, -1, "syntax.c");
+		return NULL;
+	}
+	
+
+}
+
 // ADDITIONALS
 
-_unhandled Token* lkeywordTable(Lexer* lexer, char* name) {
+_unhandled _nooverflow Token* lkeywordTable(Lexer* lexer, char* name) {
 
 	if (strcmp(name, "alias") == 0)
 	{

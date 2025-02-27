@@ -9,6 +9,8 @@ _errorhandling void error(short code, int line, char* details)
 		printf("K0000: Insufficient memory for program execution, at [%s, line %d].", details, line); exit(2); break;
 	case 1000:
 		printf("K1000: Incorrect declaration of a number literal, at [%s, line %d]", details, line); exit(2); break;
+	case 1001:
+		printf("K1001: Unexpected token, at [%s, line %d]", details, line); exit(2); break;
 	}
 	
 };

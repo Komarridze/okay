@@ -27,6 +27,9 @@
     <ClCompile Include="root\generic.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="root\parser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\syntax.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\scope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\parser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

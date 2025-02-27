@@ -6,7 +6,7 @@ typedef struct Object// okay.generic.object
 {
 	int Objtype;
 
-	struct Node* sequence; // sequence
+	struct Node** sequence; // sequence
 	char* name; // string & alias
 
 	double number; // int & float & bool

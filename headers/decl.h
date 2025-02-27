@@ -10,6 +10,7 @@ typedef struct Decl // okay.generic.decl
 
 	struct Node* value; // save
 	struct Node* algo; // alias
+	struct Node* args;
 
 
 
